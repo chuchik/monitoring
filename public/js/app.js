@@ -37437,6 +37437,7 @@ $(function () {
       console.log(msg);
     });
     function drawHddChart(msg) {
+      console.log("data is", msg);
       var barChartData = {
         labels: msg.labels,
         datasets: [{
@@ -37454,19 +37455,18 @@ $(function () {
         }]
       };
       var myBar = null;
-      window.onload = function () {
-        var ctx = document.getElementById("hddLog").getContext("2d");
-        myBar = new Chart(ctx, {
-          type: 'bar',
-          data: barChartData,
-          options: {
-            responsive: false
-          }
-        });
-      };
+      console.log('mtav hastat');
+      var ctx = document.getElementById("hddLog");
+      myBar = new Chart(ctx, {
+        type: 'bar',
+        data: barChartData,
+        options: {
+          responsive: false
+        }
+      });
     }
   }
-  GetAgentDetails(1);
+  GetAgentDetails(2);
 });
 
 /***/ }),
@@ -37538,8 +37538,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/shushanik/Projects/ch/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/shushanik/Projects/ch/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/shushanik/Projects/monitoring/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/shushanik/Projects/monitoring/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

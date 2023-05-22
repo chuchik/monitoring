@@ -59,6 +59,8 @@ $(function (){
         });
 
         function drawHddChart(msg) {
+            console.log("data is", msg)
+
             var barChartData = {
                 labels: msg.labels,
                 datasets: [{
@@ -77,20 +79,18 @@ $(function (){
 
             };
             var myBar = null;
-            window.onload = function() {
-                var ctx = document.getElementById("hddLog").getContext("2d");
-                myBar = new Chart(ctx, {
+            console.log('mtav hastat')
+            var ctx = document.getElementById("hddLog");
+            myBar = new Chart(ctx,
+                    {
                     type: 'bar',
                     data: barChartData,
                     options: {
                         responsive: false,
                     }
-                });
-            };
-
+                }
+            );
         }
-
     }
-
-    GetAgentDetails(1)
+    GetAgentDetails(2)
 })

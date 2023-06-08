@@ -4,28 +4,41 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">
+                    <div>Agents/Servers</div>
+                </div>
 
                 <div class="ard-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <div class="row">
-                        <div class="card col-md-4">
-                            <div class="card-header">Hdd usage</div>
-
-                            <div class="ard-body">
-                                 <div class="row">
-                                    <div style="width: 100%">
-                                        <canvas id="hddLog" height="450px" width="600px"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Token</th>
+                            <th scope="col">Sites count</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($agents as $agent)
+                            <tr>
+                                <td>{{$agent->name}}</td>
+                                <td>{{$agent->description}}</td>
+                                <td>{{$agent->token}}</td>
+                                <td>{{count($agent->sites)}}</td>
+                                <td>{{$agent->created_at}}</td>
+                                <td>
+                                    <a href="{{route('agent_update_form', ['id' => $agent->id])}}" class="nav_link"> <i class='bx bx-edit nav_icon'></i> </a>
+                                    <a href="{{route('agent_details', ['id' => $agent->id])}}" class="nav_link"> <i class='bx bx-edit nav_icon'></i> </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
+    </div>
+
 @endsection

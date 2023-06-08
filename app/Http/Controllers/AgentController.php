@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agent;
 use App\HddLog;
+use App\RamLog;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,16 +20,6 @@ class AgentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function createForm()
-    {
-        return view('agent');
     }
 
     /**
@@ -91,9 +82,22 @@ class AgentController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function getdetails($id)
+    {
+        $agent = Agent::find($id);
+        $agent->load('sites');
+        return view('agent_details')->with('agent', $agent);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function log($id)
     {
         $response = [];
+
         $agent = Agent::find($id);
         $now = Carbon::now();
         $threeDaysAgo = (clone $now)->subDay(3);
@@ -112,6 +116,17 @@ class AgentController extends Controller
         $response['hdd'] = $forHddChart;
 
         // RAM statistics
+        $ramlogs = RamLog::where('agent_id', $id)->whereBetween('date',[$threeDaysAgo, $now])->get();
+        $forRamChart = [];
+        $forRamChart['used'][] = 0;
+        $forRamChart['labels'][] = "start";
+        $forRamChart['summary'][] = 0;
+        foreach ($ramlogs as $index => $ramlog){
+            $forRamChart['labels'][] = $ramlog->date;
+            $forRamChart['summary'][] = $ramlog->summary;
+            $forRamChart['used'][] = $ramlog->used;
+        }
+        $response ['ram'] = $forRamChart;
 
         return new Response($response);
     }

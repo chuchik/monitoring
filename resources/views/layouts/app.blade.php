@@ -53,23 +53,13 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <a href="{{route('home')}}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Notificator</span>
+                <a href="{{route('home')}}" class="nav_logo"> <i class="bi bi-house-fill"></i><span class="nav_logo-name">Home</span>
                 </a>
                 <div class="nav_list">
-{{--                    <a href="{{route('administration')}}" class="nav_link active"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Users</span>--}}
-{{--                    </a>--}}
-{{--                    <a href="{{route('administration')}}" class="nav_link"> <i class='bx bx-cog nav_icon'></i> <span--}}
-{{--                            class="nav_name">Administration</span> </a>--}}
-                    <a href="{{route('agents')}}" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                    <a href="{{route('agents')}}" class="nav_link"> <i class="bi bi-diagram-2"></i><span
                             class="nav_name">Agents/Servers</span> </a>
-                    <a href="{{route('sites')}}" class="nav_link"> <i class='bx bx-customize nav_icon'></i> <span
+                    <a href="{{route('sites')}}" class="nav_link"> <i class="bi bi-window-stack"></i> <span
                             class="nav_name">Sites</span> </a>
-{{--                    <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span>--}}
-{{--                    </a>--}}
-{{--                    <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span--}}
-{{--                            class="nav_name">Files</span> </a>--}}
-{{--                    <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span>--}}
-{{--                    </a>--}}
                 </div>
             </div>
 

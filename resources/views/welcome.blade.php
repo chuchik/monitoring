@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Monitoring system</title>
+        <link rel="website icon" type='image/x-icon' url="{{'asset(pics/fav.ico)'}} ">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
 
         <!-- Styles -->
         <style>

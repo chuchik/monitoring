@@ -41,9 +41,9 @@ class SiteController extends Controller
         Site::create([
             'owner_id' => $owner->id,
             'name' => $request->post('site_name'),
-            'domain' => $request->post('site_domain'),
             'hearth_bit' => $request->post('site_hearth_bit'),
-            'agent_id' => $request->post('agent_id')
+            'agent_id' => $request->post('agent_id'),
+            'domain'=> $request->post('site_domain')
         ]);
         return redirect(route('sites'));
     }
@@ -85,7 +85,6 @@ class SiteController extends Controller
     {
         $site = Site::find($id);
         $agents = Auth::user()->agents;
-//        dd($site, $agents);
         return view('site_update_frm')->with(['site'=>$site, 'agents'=>$agents, 'id'=>$id]);
     }
 }

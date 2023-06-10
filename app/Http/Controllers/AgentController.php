@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Agent;
+use App\CpuLog;
 use App\HddLog;
 use App\RamLog;
 use Carbon\Carbon;
@@ -20,6 +21,15 @@ class AgentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function createForm()
+    {
+        return view('agent');
     }
 
     /**
@@ -127,6 +137,19 @@ class AgentController extends Controller
             $forRamChart['used'][] = $ramlog->used;
         }
         $response ['ram'] = $forRamChart;
+
+        //CPU statistics
+        $cpulogs = CpuLog::where('agent_id', $id)->whereBetween('date',[$threeDaysAgo, $now])->get();
+        $forCpuChart = [];
+        $forCpuChart['labels'][] = "start";
+        $forCpuChart['summary'][] = 0;
+        foreach ($cpulogs as $index => $cpulog){
+            $forCpuChart['labels'][] = $cpulog->date;
+            $forCpuChart['summary'][] = $cpulog->summary;
+        }
+        $response ['cpu'] = $forCpuChart;
+
+        //db
 
         return new Response($response);
     }

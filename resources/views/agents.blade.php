@@ -35,7 +35,7 @@
                                 <td>{{$agent->created_at}}</td>
                                 <td>
                                     <a href="{{route('agent_update_form', ['id' => $agent->id])}}" class="nav_link"> <i class='bx bx-edit nav_icon'></i> </a>
-                                    <a href="{{route('agent_details', ['id' => $agent->id])}}" class="nav_link"> <i class='bx bx-edit nav_icon'></i> </a>
+                                    <a href="{{route('agent_details', ['id' => $agent->id])}}" class="nav_link"> <i class="bi bi-bar-chart-line-fill"></i>  </a>
                                 </td>
                             </tr>
                             @endforeach

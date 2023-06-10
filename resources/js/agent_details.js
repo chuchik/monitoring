@@ -7,6 +7,7 @@ $(function (){
         }).done(function( msg ) {
             drawHddChart(msg.hdd)
             drawRamChart(msg.ram)
+            drawCpuChart(msg.cpu)
             console.log(msg)
         });
 
@@ -32,6 +33,31 @@ $(function (){
             };
             var myBar = null;
             var ctx = document.getElementById("hddLog");
+            myBar = new Chart(ctx,
+                {
+                    type: 'bar',
+                    data: barChartData,
+                    options: {
+                        responsive: false,
+                    }
+                }
+            );
+        }
+
+        function drawCpuChart(msg){
+            console.log("data is ", msg)
+            var barChartData = {
+                labels: msg.labels,
+                datasets: [{
+                    label: 'Summary',
+                    backgroundColor: "blue",
+                    data: msg.summary,
+                    borderColor: 'white',
+                    borderWidth: 2,
+                }]
+            };
+            var myBar = null;
+            var ctx = document.getElementById("cpuLog");
             myBar = new Chart(ctx,
                 {
                     type: 'bar',

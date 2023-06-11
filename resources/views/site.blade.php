@@ -37,7 +37,12 @@
                                    value="" name="site_hearth_bit">
                             <div id="siteHearthBit" class="form-text">Current site hearth bit path</div>
                         </div>
-
+                        <div class="mb-3" style="margin: auto">
+                            <label for="siteCheckWord" class="form-label">Site check word</label>
+                            <input type="text" class="form-control" id="siteCheckWord" aria-describedby="site check word path"
+                                   value="" name="check_word">
+                            <div id="siteCheckWord" class="form-text">Current check word</div>
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

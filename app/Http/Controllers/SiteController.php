@@ -43,7 +43,8 @@ class SiteController extends Controller
             'name' => $request->post('site_name'),
             'hearth_bit' => $request->post('site_hearth_bit'),
             'agent_id' => $request->post('agent_id'),
-            'domain'=> $request->post('site_domain')
+            'domain'=> $request->post('site_domain'),
+            'check_word'=> $request->post('check_word')
         ]);
         return redirect(route('sites'));
     }
@@ -59,7 +60,8 @@ class SiteController extends Controller
             'name' => $request->post('site_name'),
             'domain' => $request->post('site_domain'),
             'hearth_bit' => $request->post('site_hearth_bit'),
-            'agent_id' => $request->post('agent_id')
+            'agent_id' => $request->post('agent_id'),
+            'check_word'=> $request->post('check_word')
         ]);
         return redirect(route('sites'));
     }

@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
+        <div style="margin: auto">
+            <div class="card" style="margin: auto">
                 <div class="card-header">Site: {{$site->name}}</div>
                 <div class="ard-body">
                     <form href="{{route('site_update', ['id' => $site->id])}}" method="post">
@@ -40,6 +40,12 @@
                             <input type="text" class="form-control" id="siteHearthBit" aria-describedby="site hearth bit path"
                                    value="{{$site->hearth_bit}}" name="site_hearth_bit">
                             <div id="siteHearthBit" class="form-text">Current site hearth bit path</div>
+                        </div>
+                        <div class="mb-3" style="margin: auto">
+                            <label for="siteCheckWord" class="form-label">Site check word</label>
+                            <input type="text" class="form-control" id="siteCheckWord" aria-describedby="site check word path"
+                                   value="" name="check_word">
+                            <div id="siteCheckWord" class="form-text">Current check word</div>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>

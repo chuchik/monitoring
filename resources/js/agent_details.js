@@ -8,6 +8,7 @@ $(function (){
             drawHddChart(msg.hdd)
             drawRamChart(msg.ram)
             drawCpuChart(msg.cpu)
+            drawDbChart(msg.db)
             console.log(msg)
         });
 
@@ -29,7 +30,6 @@ $(function (){
                     borderColor: 'white',
                     borderWidth: 2
                 }, ]
-
             };
             var myBar = null;
             var ctx = document.getElementById("hddLog");
@@ -58,6 +58,30 @@ $(function (){
             };
             var myBar = null;
             var ctx = document.getElementById("cpuLog");
+            myBar = new Chart(ctx,
+                {
+                    type: 'bar',
+                    data: barChartData,
+                    options: {
+                        responsive: false,
+                    }
+                }
+            );
+        }
+        function drawDbChart(msg){
+            console.log("data is ", msg)
+            var barChartData = {
+                labels: msg.labels,
+                datasets: [ {
+                    label: 'Connections',
+                    backgroundColor: "red",
+                    data: msg.connections,
+                    borderColor: 'white',
+                    borderWidth: 2
+                }, ]
+            };
+            var myBar = null;
+            var ctx = document.getElementById("dbLog");
             myBar = new Chart(ctx,
                 {
                     type: 'bar',

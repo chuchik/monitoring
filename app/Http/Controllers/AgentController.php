@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Agent;
 use App\CpuLog;
+use App\DbLog;
+use App\DomainLog;
 use App\HddLog;
 use App\RamLog;
+use App\SshLog;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -129,7 +132,7 @@ class AgentController extends Controller
         $ramlogs = RamLog::where('agent_id', $id)->whereBetween('date',[$threeDaysAgo, $now])->get();
         $forRamChart = [];
         $forRamChart['used'][] = 0;
-        $forRamChart['labels'][] = "start";
+        $forRamChart['labels'][] = 0;
         $forRamChart['summary'][] = 0;
         foreach ($ramlogs as $index => $ramlog){
             $forRamChart['labels'][] = $ramlog->date;
@@ -149,8 +152,16 @@ class AgentController extends Controller
         }
         $response ['cpu'] = $forCpuChart;
 
-        //db
-
+        //DB statistics
+        $dblogs = DbLog::where('agent_id', $id)->whereBetween('date',[$threeDaysAgo, $now])->get();
+        $forDbChart = [];
+        $forDbChart['labels'][] = "start";
+        $forDbChart['connections'][] = 0;
+        foreach ($dblogs as $index => $dblog){
+            $forDbChart['labels'][] = $dblog->date;
+            $forDbChart['connections'][] = $dblog->connections;
+        }
+        $response['db'] = $forDbChart;
         return new Response($response);
     }
 }

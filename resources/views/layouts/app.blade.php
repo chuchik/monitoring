@@ -40,9 +40,9 @@
 @guest
     <header class="header  navbar_guest" id="header">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            <a class="nav-link" href="{{ route('login') }}">Մուտք</a>
             @if (Route::has('register'))
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="nav-link" href="{{ route('register') }}">Գրանցում</a>
             @endif
         </nav>
     </header>
@@ -53,19 +53,19 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <a href="{{route('home')}}" class="nav_logo"> <i class="bi bi-house-fill"></i><span class="nav_logo-name">Home</span>
+                <a href="{{route('home')}}" class="nav_logo"> <i class="bi bi-house-fill"></i><span class="nav_logo-name">Գլխավոր</span>
                 </a>
                 <div class="nav_list">
                     <a href="{{route('agents')}}" class="nav_link"> <i class="bi bi-diagram-2"></i><span
-                            class="nav_name">Agents/Servers</span> </a>
+                            class="nav_name">Գործակալներ</span> </a>
                     <a href="{{route('sites')}}" class="nav_link"> <i class="bi bi-window-stack"></i> <span
-                            class="nav_name">Sites</span> </a>
+                            class="nav_name">Կայքեր</span> </a>
                 </div>
             </div>
 
             <a href="{{ route('logout') }}" class="nav_link"
                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">{{ __('Logout') }}</span>
+                <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Դուրս գալ</span>
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -86,22 +86,6 @@
                     <main>
                         @yield('content')
                     </main>
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
 
     </div>
 </div>

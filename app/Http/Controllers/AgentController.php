@@ -87,7 +87,11 @@ class AgentController extends Controller
     {
         $agent = Agent::find($id);
         $agent->load('sites');
-        return view('agent_update')->with('agent', $agent);
+        $now = Carbon::now();
+        $threeDaysAgo = (clone $now)->subDay(3);
+        $sshlogs = SshLog::where('agent_id', $id)->whereBetween('date', [$threeDaysAgo, $now])->groupBy('id', 'user')->distinct('user')->get();
+        return view('agent_update')->with(['agent'=> $agent, 'sshLogs'=>$sshlogs]);
+
     }
 
     /**
@@ -99,7 +103,10 @@ class AgentController extends Controller
     {
         $agent = Agent::find($id);
         $agent->load('sites');
-        return view('agent_details')->with('agent', $agent);
+        $now = Carbon::now();
+        $threeDaysAgo = (clone $now)->subDay(3);
+        $sshlogs = SshLog::where('agent_id', $id)->whereBetween('date', [$threeDaysAgo, $now])->groupBy('id', 'user')->distinct('user')->get();
+        return view('agent_details', ['agent'=> $agent, 'sshLogs'=>$sshlogs])->with('agent', $agent);
     }
 
     /**
@@ -162,6 +169,9 @@ class AgentController extends Controller
             $forDbChart['connections'][] = $dblog->connections;
         }
         $response['db'] = $forDbChart;
+
+
+
         return new Response($response);
     }
 }

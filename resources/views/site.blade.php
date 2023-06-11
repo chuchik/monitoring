@@ -2,15 +2,16 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <h4>Add new site</h4>
+        <h4>Ավելացնել նոր կայք</h4>
         <div class="col-md-12">
             <div class="card">
                 <div class="ard-body">
+                    <div class="col-md-5">
                     <form href="{{route('create_site')}}" method="post">
                         @csrf
                         @method('post')
                         <div class="input-group mb-3" style="display: block">
-                            <label for="inputGroupSelect03" class="form-label">Select linked agent</label>
+                            <label for="inputGroupSelect03" class="form-label">Ընտրեք կցված գործակալին</label>
 
                             <select class="custom-select" id="inputGroupSelect03" name="agent_id" style="width: inherit" required>
                                 @foreach($agents as $agent)
@@ -20,32 +21,29 @@
 
                         </div>
                         <div class="mb-3">
-                            <label for="siteName" class="form-label">Site name</label>
+                            <label for="siteName" class="form-label">Կայքի անվանում</label>
                             <input type="text" class="form-control" id="siteName" aria-describedby="agent Name"
                                    value="" name="site_name">
-                            <div id="siteName" class="form-text">Current site name</div>
                         </div>
                         <div class="mb-3">
-                            <label for="siteDomain" class="form-label">Site domain(without http/https/www)</label>
+                            <label for="siteDomain" class="form-label">Կայքի հասցե(առանց http/https/www)</label>
                             <input type="text" class="form-control" id="siteDomain" aria-describedby="site domain"
                                    value="" name="site_domain" required>
-                            <div id="siteDomain" class="form-text">Current site domain</div>
                         </div>
                         <div class="mb-3">
-                            <label for="siteHearthBit" class="form-label">Site hearth bit path (without symbol /)</label>
+                            <label for="siteHearthBit" class="form-label">Կայքի hearth bit path (առանց / սիմվոլի)</label>
                             <input type="text" class="form-control" id="siteHearthBit" aria-describedby="site hearth bit path"
                                    value="" name="site_hearth_bit">
-                            <div id="siteHearthBit" class="form-text">Current site hearth bit path</div>
                         </div>
                         <div class="mb-3" style="margin: auto">
-                            <label for="siteCheckWord" class="form-label">Site check word</label>
+                            <label for="siteCheckWord" class="form-label">Կայքի ստուգող բառ</label>
                             <input type="text" class="form-control" id="siteCheckWord" aria-describedby="site check word path"
                                    value="" name="check_word">
-                            <div id="siteCheckWord" class="form-text">Current check word</div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Ավելացնել</button>
                     </form>
                 </div>
+            </div>
             </div>
         </div>
     </div>

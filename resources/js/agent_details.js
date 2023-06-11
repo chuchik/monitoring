@@ -92,6 +92,7 @@ $(function (){
                 }
             );
         }
+
         function drawRamChart(msg){
             console.log("data is ", msg)
             var barChartData = {

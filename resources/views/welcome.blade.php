@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Monitoring system</title>
+        <title>Մոնիթորինգ</title>
         <link rel="website icon" type='image/x-icon' url="{{'asset(pics/fav.ico)'}} ">
 
         <!-- Fonts -->
@@ -70,12 +70,12 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Տուն</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Մուտք գործել</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Գրանցվել</a>
                         @endif
                     @endauth
                 </div>
@@ -83,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    DATA about our <br>CLIENTS
+                    Մոնիթորինգ համակարգ
                 </div>
             </div>
         </div>

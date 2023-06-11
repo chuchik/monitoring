@@ -5,19 +5,19 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div>Agents/Servers</div>
+                    <div>Գործակալներ/Սերվերներ</div>
                 </div>
             <div class="col-md-10">
                 <div class="ard-body">
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Token</th>
-                            <th scope="col">Sites count</th>
-                            <th scope="col">Created At</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Անուն</th>
+                            <th scope="col">Նկարագրություն</th>
+                            <th scope="col">Տոկեն</th>
+                            <th scope="col">Կայքերի քանակ</th>
+                            <th scope="col">Ստեղծվել է</th>
+                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>

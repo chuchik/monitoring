@@ -42,7 +42,7 @@
                         <div class="mb-3" style="margin: auto">
                             <label for="siteCheckWord" class="form-label">Կայքի ստուգող բառ</label>
                             <input type="text" class="form-control" id="siteCheckWord" aria-describedby="site check word path"
-                                   value="" name="check_word">
+                                   value="{{$site->check_word}}" name="check_word">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Թարմեցնել</button>
